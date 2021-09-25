@@ -10,7 +10,7 @@ def get_links(url):
     #print(type(links))    #<class 'bs4.element.ResultSet'>
     #print(type(links[0]))  # <class 'bs4.element.Tag'>
     
-    hyperlinks = [url]
+    hyperlinks = ['https://stackoverflow.com/queto-import-the-class-within-the-same-directory-or-sub-directory']
     
     for l in links:
         hyperlinks.append(l.get('href'))
@@ -27,6 +27,7 @@ def test_links(hyperlinks):
             if code != 200:
                 wrong_urls.append(url)
         except:
+            #print("camehere dude",url)
             wrong_urls.append(url)
     return wrong_urls
 
@@ -36,7 +37,7 @@ def main():
     hyperlinks = get_links(url)
     #print(hyperlinks,"\n------") #-->list
     wrong_urls = test_links(hyperlinks)
-    print(wrong_urls)
+    #print(wrong_urls)
 
 if __name__ == "__main__":
     main()
