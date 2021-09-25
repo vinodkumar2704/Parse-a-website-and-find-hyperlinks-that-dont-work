@@ -1,7 +1,7 @@
 import requests
 import bs4
 import re
-
+import urllib
 
 def get_links(url):
     resp = requests.get(url)
@@ -11,7 +11,10 @@ def get_links(url):
     #print(type(links))    #<class 'bs4.element.ResultSet'>
     #print(type(links[0]))  # <class 'bs4.element.Tag'>
 
-    for l in links:print(l.get('href'))
+    for l in links:
+        code =  urllib.request.urlopen(l.get('href')).getcode()
+        print(code)
+        print(l.get('href'))
 
 
 def main():
