@@ -15,3 +15,5 @@ The repository contains a web app which takes a webpage url as input and gives a
 1. `export FLASK_APP=project_app` to set the application(stay in this repository in the terminal)
 1. `flask run` to start the app.
 
+# Note
+You can also run project.py file on terminal by making little changes to the script .
