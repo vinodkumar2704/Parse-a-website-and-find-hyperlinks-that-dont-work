@@ -4,13 +4,16 @@ import re
 import urllib
 
 def get_links(url):
-    resp = requests.get(url)
+    try:
+        resp = requests.get(url)
+    except:
+        return [url]
     soup = bs4.BeautifulSoup(resp.content,'html.parser')
     links = soup.find_all("a",attrs = {'href' : re.compile("^https://")})#https://www.geeksforgeeks.org/privacy-policy/
     #print(type(links))    #<class 'bs4.element.ResultSet'>
     #print(type(links[0]))  # <class 'bs4.element.Tag'>
     
-    hyperlinks = ['https://stackoverflow.com/queto-import-the-class-within-the-same-directory-or-sub-directory']
+    hyperlinks = []
     
     for l in links:
         hyperlinks.append(l.get('href'))
